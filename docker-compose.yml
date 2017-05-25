@@ -1,0 +1,18 @@
+# My docker-compose.yml file
+
+# MySQL database
+mysql:
+  image: mysql-db
+  container_name: mysql-db
+  #network_mode: default
+  ports:
+  - "3306:3306"
+  volumes:
+  - /opt/db/mysql:/var/lib/mysql
+  - /opt/db/mysql/my.cnf:/etc/my.cnf
+  environment:
+  - MYSQL_ROOT_USER=root
+  - MYSQL_ROOT_PASSWORD=admin
+  - MYSQL_DATABASE=test
+  - MYSQL_ROOT_HOST=%
+
